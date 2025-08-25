@@ -105,6 +105,7 @@ It’s evident this is not the optimal way of approaching the problem, but a str
 ├── src/               # Helper scripts for classification & embeddings
 ├── environment.yml    # Conda environment for reproducibility
 ├── README.md          # This file
+```
 
 
 🙌 Closing Note
