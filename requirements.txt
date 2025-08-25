@@ -1,0 +1,16 @@
+name: procurement-nlp
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - pandas
+  - numpy
+  - matplotlib
+  - seaborn
+  - scikit-learn
+  - ipython
+  - openpyxl
+  - pip
+  - pip:
+      - sentence-transformers
