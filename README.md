@@ -29,102 +29,102 @@ Which classes dominate in quantity?
 🧭 Our Approach (Step by Step)
 1. Exploration
 
-Started with word frequency analysis (unigrams).
+  Started with word frequency analysis (unigrams).
 
-Found that most frequent tokens were units and codes (e.g., mm, مم, x, f).
+  Found that most frequent tokens were units and codes (e.g., mm, مم, x, f).
 
-Insight: raw word counts weren’t enough.
+  Insight: raw word counts weren’t enough.
 
 2. Bi-gram Analysis
 
-Extracted two-word combinations (e.g., حديد تسليح, steel bar, ماسورة حديد).
+  Extracted two-word combinations (e.g., حديد تسليح, steel bar, ماسورة حديد).
 
-This surfaced product-level signals: rebar, sheets, pipes, cables.
+  This surfaced product-level signals: rebar, sheets, pipes, cables.
 
-Still noisy, but better than unigrams.
+  Still noisy, but better than unigrams.
 
 3. Manual Classification
 
-Created initial keyword-based classes:
+  Created initial keyword-based classes:
 
-Rebar & Steel Bars
+  Rebar & Steel Bars
 
-Steel Sheets / Plates
+  Steel Sheets / Plates
 
-Pipes & Tubes
+  Pipes & Tubes
 
-Other / Specs / Unclassified
+  Other / Specs / Unclassified
 
-Mined “Other” → discovered new families: Electrical, Concrete Panels, Fasteners, Coatings.
+  Mined “Other” → discovered new families: Electrical, Concrete Panels, Fasteners, Coatings.
 
-Expanded taxonomy to 7 categories.
+  Expanded taxonomy to 7 categories.
 
 4. Embedding-based Classification
 
-Used sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2.
+  Used sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2.
 
-Created prototypes for each class using bilingual prompts.
+  Created prototypes for each class using bilingual prompts.
 
-Encoded all items → matched to closest class by cosine similarity.
+  Encoded all items → matched to closest class by cosine similarity.
 
-Supported multi-label classification when an item spanned categories.
+  Supported multi-label classification when an item spanned categories.
 
 5. Visualization & Dashboard
 
-Built a basic dashboard (matplotlib/seaborn):
+  Built a basic dashboard (matplotlib/seaborn):
 
-Total spend and quantities
+  Total spend and quantities # Normal print statements
 
-Top 3 POs by spend/qty
+  Top POs by spend/qty
 
-Top 3 classes by spend/qty
+  Top classes by spend/qty
 
-% share of each category
+  % share of each category
 
 Enabled quick insights like:
-“2 classes account for 50% of spend — these are strategic categories.”
+  “2 classes account for 50% of spend — these are strategic categories.”
 
 ⚠️ Limitations
 
-It’s evident this is not the optimal way of approaching the problem, but a strong prototype:
+  It’s evident this is not the optimal way of approaching the problem, but a strong prototype:
 
-Heavy reliance on item names only; ignored supplier codes, units, or material groups.
+  Heavy reliance on item names only; ignored supplier codes, units, or material groups.
 
-Embedding thresholds and keyword lists were heuristic, not tuned with labeled data.
+  Embedding thresholds and keyword lists were heuristic, not tuned with labeled data.
 
-Category taxonomy was manually designed, so may miss edge cases.
+  Category taxonomy was manually designed, so may miss edge cases.
 
-Noise from specs and codes still affects classification accuracy.
+  Noise from specs and codes still affects classification accuracy.
 
 🔮 Future Recommendations
 
-Incorporate structured fields (supplier, material codes, units) to complement text.
+  Incorporate structured fields (supplier, material codes, units) to complement text.
 
-Build a labeled dataset → train supervised models, validate properly.
+  Build a labeled dataset → train supervised models, validate properly.
 
-Expand taxonomy with domain experts to ensure coverage.
+  Expand taxonomy with domain experts to ensure coverage.
 
-Deploy in an interactive dashboard where users can correct classifications → create feedback loops.
+  Deploy in an interactive dashboard where users can correct classifications → create feedback loops.
 
-Explore semi-supervised clustering with embeddings for continuous discovery of new categories.
+  Explore semi-supervised clustering with embeddings for continuous discovery of new categories.
 
 📊 Example Outputs
 
-Spend concentration: showed that 2 categories alone made up ~50% of spend.
+  Spend concentration: showed that 2 categories alone made up ~50% of spend.
 
-Insight: treat them as strategic categories in sourcing and risk planning.
+  Insight: treat them as strategic categories in sourcing and risk planning.
 
-Quantity analysis: highlighted classes that drive procurement in volume but not spend.
+  Quantity analysis: highlighted classes that drive procurement in volume but not spend.
 
-Provided an early look at how text + embeddings can unlock value in messy ERP data.
+  Provided an early look at how text + embeddings can unlock value in messy ERP data.
 
 🛠 Tech Stack
 
-Python 3.9
+  Python 3.9
 
-Libraries: pandas, numpy, matplotlib, seaborn, scikit-learn, sentence-transformers, openpyxl
+  Libraries: pandas, numpy, matplotlib, seaborn, scikit-learn, sentence-transformers, openpyxl
 
-Environment: managed with conda (environment.yml included)
+  Environment: managed with conda (environment.yml included)
 
 📂 Repository Structure
 
