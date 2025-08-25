@@ -101,11 +101,36 @@ It’s evident this is not the optimal way of approaching the problem, but a str
 
 ## 📂 Repository Structure
 ```plaintext
-├── notebooks/         # Jupyter notebooks with analysis & experiments
-├── src/               # Helper scripts for classification & embeddings
+├── POProject          # Jupyter notebook with analysis & experiments
+├── requirements.txt/  # for pip users (e.g., on Colab, or non-conda environments)
 ├── environment.yml    # Conda environment for reproducibility
-├── README.md          # This file
+├── README.md          # General explanation
 ```
+
+## ▶️ Instructions for Running the Solution
+
+
+# ================================
+# 1. Clone the repository
+# ================================
+git clone https://github.com/<your-username>/<your-repo-name>.git
+cd <your-repo-name>
+
+# ================================
+# 2. Set up the environment
+# ================================
+
+# Option A: Using conda (recommended)
+conda env create -f environment.yml
+
+
+# Option B: Using pip
+pip install -r requirements.txt
+
+# ================================
+# 3. Launch Jupyter Notebook
+# ================================
+jupyter notebook
 
 
 🙌 Closing Note
